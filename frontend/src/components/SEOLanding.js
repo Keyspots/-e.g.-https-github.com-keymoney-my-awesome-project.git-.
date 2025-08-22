@@ -644,7 +644,7 @@ const SEOLanding = () => {
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="body-sm">
-            © 2024 SEOBoost. All rights reserved. Helping businesses grow online since 2020.
+            © 2025-2026 SEOBoost. All rights reserved. Helping businesses grow online since 2020.
           </p>
         </div>
       </footer>
