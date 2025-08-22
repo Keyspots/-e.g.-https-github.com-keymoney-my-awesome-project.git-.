@@ -10,20 +10,103 @@ const SEOLanding = () => {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [error, setError] = useState(null);
+  const [stats, setStats] = useState([
+    { number: "500+", label: "Websites Optimized" },
+    { number: "150%", label: "Average Traffic Increase" }, 
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "30 Days", label: "Average Time to Results" }
+  ]);
+  const [testimonials] = useState([
+    {
+      name: "Sarah Johnson", 
+      business: "Local Bakery",
+      rating: 5,
+      quote: "Our website traffic increased 150% after they optimized our SEO. More customers are finding us online!"
+    },
+    {
+      name: "Mike Chen",
+      business: "Nonprofit Organization", 
+      rating: 5,
+      quote: "As a nonprofit with limited budget, their affordable SEO services helped us reach more donors and volunteers."
+    },
+    {
+      name: "Lisa Rodriguez",
+      business: "Consulting Firm",
+      rating: 5,
+      quote: "Professional, knowledgeable, and results-driven. Our Google rankings improved dramatically."
+    }
+  ]);
+
+  // Fetch stats on component mount
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const response = await axios.get(`${API}/stats`);
+        if (response.data.success) {
+          setStats(response.data.data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch stats:', error);
+        // Keep default stats if API fails
+      }
+    };
+    
+    fetchStats();
+  }, []);
 
   const handleAnalyze = async (e) => {
     e.preventDefault();
     if (!url) return;
 
     setLoading(true);
+    setError(null);
+    
     try {
-      const result = await analyzeSEO(url);
-      setAnalysis(result);
-      setShowResults(true);
+      const response = await axios.post(`${API}/seo/analyze`, { url });
+      
+      if (response.data.success) {
+        setAnalysis(response.data.data);
+        setShowResults(true);
+      } else {
+        throw new Error('Analysis failed');
+      }
     } catch (error) {
       console.error('Analysis failed:', error);
+      
+      if (error.response?.status === 429) {
+        setError('Rate limit exceeded. Please try again in an hour.');
+      } else if (error.response?.status === 400) {
+        setError('Please enter a valid website URL.');
+      } else {
+        setError('Analysis failed. Please check your URL and try again.');
+      }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleConsultationSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    
+    const consultationData = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      website: formData.get('website'),
+      message: formData.get('message')
+    };
+    
+    try {
+      const response = await axios.post(`${API}/contact/consultation`, consultationData);
+      
+      if (response.data.success) {
+        alert('Thank you! We\'ll contact you within 24 hours.');
+        e.target.reset();
+      }
+    } catch (error) {
+      console.error('Consultation submission failed:', error);
+      alert('Failed to submit. Please try again or contact us directly.');
     }
   };
 
