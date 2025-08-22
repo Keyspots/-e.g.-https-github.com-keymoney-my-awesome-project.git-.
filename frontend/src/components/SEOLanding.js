@@ -384,7 +384,7 @@ const SEOLanding = () => {
         </div>
 
         <div className="card-grid-3">
-          {mockSEOData.testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <div key={index} className="feature-card">
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
