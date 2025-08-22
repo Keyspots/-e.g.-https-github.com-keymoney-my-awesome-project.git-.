@@ -39,7 +39,7 @@ class SEOAnalysisResponse(BaseModel):
 # Contact Models  
 class ConsultationRequest(BaseModel):
     name: str = Field(..., min_length=2, max_length=100)
-    email: str = Field(..., regex=r'^[^@]+@[^@]+\.[^@]+$')
+    email: str = Field(..., pattern=r'^[^@]+@[^@]+\.[^@]+$')
     website: Optional[HttpUrl] = None
     message: str = Field(..., min_length=10, max_length=1000)
 
