@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, CheckCircle, AlertTriangle, XCircle, Star, Users, TrendingUp, Shield, Smartphone, Gauge, ArrowRight, Globe, Mail, Phone } from 'lucide-react';
-import { mockSEOData, analyzeSEO } from '../mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const SEOLanding = () => {
   const [url, setUrl] = useState('');
