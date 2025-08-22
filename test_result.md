@@ -186,9 +186,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "SEO Analysis API"
-    - "Real Backend Integration"
-    - "Consultation Form API"
+    - "SEO Landing Page UI"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
