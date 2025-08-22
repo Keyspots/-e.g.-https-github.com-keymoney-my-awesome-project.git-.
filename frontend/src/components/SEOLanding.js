@@ -182,13 +182,19 @@ const SEOLanding = () => {
 
           {/* Trust Indicators */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-            {mockSEOData.stats.map((stat, index) => (
+            {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="h2" style={{color: 'var(--accent-primary)'}}>{stat.number}</div>
                 <div className="body-sm">{stat.label}</div>
               </div>
             ))}
           </div>
+
+          {error && (
+            <div className="max-w-md mx-auto mt-6 p-4 bg-red-900 border border-red-700 rounded-lg">
+              <p className="text-red-300 text-center">{error}</p>
+            </div>
+          )}
         </div>
       </section>
 
