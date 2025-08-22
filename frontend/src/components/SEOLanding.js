@@ -502,10 +502,11 @@ const SEOLanding = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="feature-card">
               <h3 className="h3 mb-6">Get Your Free Consultation</h3>
-              <form className="space-y-4">
+              <form onSubmit={handleConsultationSubmit} className="space-y-4">
                 <div>
                   <input 
                     type="text" 
+                    name="name"
                     placeholder="Your Name" 
                     className="input-field"
                     required 
@@ -514,6 +515,7 @@ const SEOLanding = () => {
                 <div>
                   <input 
                     type="email" 
+                    name="email"
                     placeholder="Email Address" 
                     className="input-field"
                     required 
@@ -522,16 +524,18 @@ const SEOLanding = () => {
                 <div>
                   <input 
                     type="url" 
-                    placeholder="Website URL" 
+                    name="website"
+                    placeholder="Website URL (optional)" 
                     className="input-field"
-                    required 
                   />
                 </div>
                 <div>
                   <textarea 
+                    name="message"
                     placeholder="Tell us about your business and goals" 
                     rows="4" 
                     className="input-field resize-none"
+                    required
                   ></textarea>
                 </div>
                 <button type="submit" className="btn-primary w-full">
