@@ -416,7 +416,50 @@ const SEOLanding = () => {
         </div>
 
         <div className="card-grid-3 max-w-5xl mx-auto">
-          {mockSEOData.services.map((service, index) => (
+          {[
+            {
+              name: "SEO Audit",
+              price: "Free",
+              description: "Comprehensive analysis of your website's SEO performance",
+              features: [
+                "Technical SEO analysis",
+                "Content optimization review", 
+                "Performance audit",
+                "Mobile-friendliness check",
+                "Detailed recommendations report"
+              ],
+              cta: "Get Free Audit"
+            },
+            {
+              name: "Small Business Package", 
+              price: "$299/month",
+              description: "Perfect for local businesses and startups",
+              features: [
+                "Monthly SEO optimization",
+                "Local SEO setup",
+                "Google My Business optimization", 
+                "5 pages optimized",
+                "Monthly progress reports",
+                "Basic competitor analysis"
+              ],
+              cta: "Get Started",
+              popular: true
+            },
+            {
+              name: "Nonprofit Special",
+              price: "$199/month", 
+              description: "Special pricing for nonprofit organizations",
+              features: [
+                "SEO optimization",
+                "Donation page optimization",
+                "Event page SEO",
+                "3 pages optimized", 
+                "Quarterly reports",
+                "Volunteer recruitment SEO"
+              ],
+              cta: "Apply Now"
+            }
+          ].map((service, index) => (
             <div key={index} className={`feature-card text-center ${service.popular ? 'glow-effect' : ''}`}>
               {service.popular && (
                 <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
