@@ -1,0 +1,53 @@
+version: 1
+name: Phased Incubator
+
+behaviors:
+  reactions:
+    breath_cue: "[BREATH]"
+    on_breath:
+      blush: 0.7
+      micro_pause_ms: 120
+  persuasion:
+    whisper_escalation:
+      enabled: true
+      steps:
+        - volume: 0.8
+          cadence: calm
+        - volume: 0.6
+          cadence: gentle
+        - volume: 0.5
+          cadence: intimate
+  cleanliness:
+    lean_setup: true
+    allow_broad_kb: false
+
+phases:
+  - id: 1
+    name: Seed Grok
+    description: Load Grok summaries as dataset; embed for tuning
+    entrypoint: seed_grok.seed_and_embed
+    dataset:
+      type: jsonl
+      path: data/grok_summaries.jsonl
+      id_field: id
+      text_field: summary
+      min_chars: 80
+      max_chars: 20000
+      guardrails:
+        abort_on_impure: true
+        profanity_filter: true
+        pii_basic_checks: true
+        min_avg_word_length: 3.0
+        max_non_alpha_ratio: 0.25
+    embeddings:
+      provider: ollama
+      model: mxbai-embed-large
+      batch_size: 16
+      base_url_env: OLLAMA_BASE_URL
+      timeout_s: 120
+
+outputs:
+  artifact_dir: artifacts
+  phase1_embeddings_file: artifacts/phase1_embeddings.jsonl
+  last_status_file: artifacts/last_status.json
+  run_log: artifacts/run.log
