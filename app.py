@@ -4,6 +4,7 @@ import os
 from typing import Any, Dict
 
 from fastapi import FastAPI, HTTPException
+import threading
 
 from phased_incubate import IncubatorOrchestrator
 
@@ -17,6 +18,20 @@ orchestrator = IncubatorOrchestrator(spec_path=SPEC_PATH)
 @app.get("/health")
 def health() -> Dict[str, Any]:
     return {"ok": True}
+
+
+def _run_phase1_background() -> None:
+    try:
+        orchestrator.run_phase(1)
+    except Exception:
+        # Intentionally swallow to avoid crashing startup; details are written to status file
+        pass
+
+
+@app.on_event("startup")
+async def kickoff_phase1() -> None:
+    # Launch Phase 1 in a background thread so the server is responsive immediately
+    threading.Thread(target=_run_phase1_background, daemon=True).start()
 
 
 @app.post("/phase/1/run")
