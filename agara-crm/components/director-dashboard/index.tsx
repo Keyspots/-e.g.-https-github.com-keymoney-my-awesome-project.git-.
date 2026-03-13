@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { BarChart3, Users, LayoutDashboard } from 'lucide-react';
 import { TeamAlohaLeaderboard } from './TeamAlohaLeaderboard';
+import { TeamOverview } from './TeamOverview';
+import { AgentTable, type AgentRow } from './AgentTable';
 import { cn } from '@/lib/utils';
 import type { RegionStats, Profile } from '@/types';
 
@@ -15,9 +17,10 @@ const TABS = [
 interface DirectorDashboardProps {
   director: Profile;
   regions: RegionStats[];
+  agents?: AgentRow[];
 }
 
-export function DirectorDashboard({ director, regions }: DirectorDashboardProps) {
+export function DirectorDashboard({ director, regions, agents = [] }: DirectorDashboardProps) {
   const [tab, setTab] = useState('leaderboard');
 
   const totalAgents = regions.reduce((s, r) => s + r.agentCount, 0);
@@ -82,19 +85,11 @@ export function DirectorDashboard({ director, regions }: DirectorDashboardProps)
       )}
 
       {tab === 'overview' && (
-        <div className="bg-white rounded-2xl border border-border p-6 shadow-sm">
-          <p className="text-muted-foreground text-sm">
-            Overview charts will be wired to live Supabase data in the next phase.
-          </p>
-        </div>
+        <TeamOverview regions={regions} />
       )}
 
       {tab === 'agents' && (
-        <div className="bg-white rounded-2xl border border-border p-6 shadow-sm">
-          <p className="text-muted-foreground text-sm">
-            Full distributor roster will be wired to live Supabase data in the next phase.
-          </p>
-        </div>
+        <AgentTable agents={agents} />
       )}
     </div>
   );
