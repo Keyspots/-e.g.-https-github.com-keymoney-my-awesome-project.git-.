@@ -1,10 +1,25 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 
+// When Supabase is not configured (local dev without .env.local),
+// skip auth checks so the UI can be previewed with mock data.
+const SUPABASE_CONFIGURED =
+  !!process.env.NEXT_PUBLIC_SUPABASE_URL &&
+  !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next({
     request: { headers: request.headers },
   });
+
+  // ── Dev bypass: no Supabase keys → allow all dashboard routes ────────────
+  if (!SUPABASE_CONFIGURED) {
+    const path = request.nextUrl.pathname;
+    if (path === '/dashboard' || path === '/dashboard/') {
+      return NextResponse.redirect(new URL('/dashboard/agent', request.url));
+    }
+    return response;
+  }
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -55,7 +70,6 @@ export async function middleware(request: NextRequest) {
     const isActive = !subscription || subscription.status === 'active';
 
     if (!isActive) {
-      // Route any new leads to the agent's director while inactive
       await supabase
         .from('leads')
         .update({ routed_to: 'DIRECTOR' })

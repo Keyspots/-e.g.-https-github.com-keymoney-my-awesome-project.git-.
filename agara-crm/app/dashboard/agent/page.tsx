@@ -15,15 +15,18 @@ const MOCK_AGENT: Profile = {
   created_at: '2024-01-15T00:00:00Z',
 };
 
+// Fixed seed data — avoids server/client hydration mismatch
+const HEATMAP_SEED = [0,2,1,5,3,0,1,4,2,0,3,6,1,2,0,4,3,1,0,2,5,3,1,0,2,1,4,0,3,2];
+
 function makeHeatmapData(): { date: string; count: number }[] {
   const data = [];
-  const today = new Date();
+  const base = new Date('2026-03-13');
   for (let i = 29; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(today.getDate() - i);
+    const d = new Date(base);
+    d.setDate(base.getDate() - i);
     data.push({
       date: d.toISOString().split('T')[0],
-      count: Math.floor(Math.random() * 8),
+      count: HEATMAP_SEED[29 - i] ?? 0,
     });
   }
   return data;
