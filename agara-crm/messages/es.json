@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "dashboard":    "Mi Panel",
+    "community":    "Mi Comunidad",
+    "myLink":       "Mi Enlace Personal",
+    "settings":     "Configuración",
+    "teamOverview": "Vista del Equipo"
+  },
+  "dashboard": {
+    "greeting": {
+      "aloha":   "Aloha, {name}!",
+      "hola":    "Hola, {name}!",
+      "kumusta": "Kumusta, {name}!",
+      "hello":   "Hola, {name}!"
+    },
+    "subtitle": "Aquí tienes un resumen de tu comunidad y cómo está creciendo.",
+    "stats": {
+      "totalMembers":     "Total de Miembros",
+      "readyToConnect":   "Listos para Conectar",
+      "connectionRate":   "Tasa de Conexión",
+      "growthMomentum":   "Momento de Crecimiento"
+    },
+    "heatmap": {
+      "title":   "Actividad en los Últimos 30 Días",
+      "joined":  "{count} {count, plural, one {persona nueva se unió} other {personas nuevas se unieron}} a tu comunidad"
+    },
+    "shareCard": {
+      "title":    "Tu Página Personal",
+      "subtitle": "Comparte este enlace y deja que tu historia haga el trabajo.",
+      "copy":     "Copiar Enlace",
+      "copied":   "¡Copiado!",
+      "toast":    "¡Enlace copiado! Ve a compartirlo.",
+      "peopleJoined": "Personas Unidas",
+      "momentumScore": "Puntuación de Impulso"
+    },
+    "flywheel": {
+      "title":    "Tu Camino de Crecimiento",
+      "subtitle": "Cómo las personas avanzan desde el primer contacto hasta formar parte de tu equipo.",
+      "stages": {
+        "attract": "Atraer",
+        "engage":  "Conectar",
+        "convert": "Convertir",
+        "delight": "Deleitar"
+      }
+    },
+    "recentMembers": {
+      "title":    "Nuevos Miembros",
+      "subtitle": "Personas que se unieron recientemente a través de tu página",
+      "empty":    "Comparte tu enlace para comenzar a dar la bienvenida a personas en tu comunidad.",
+      "columns": {
+        "person":    "Persona",
+        "readiness": "Disposición",
+        "joined":    "Se Unió",
+        "source":    "Origen",
+        "action":    "Acción"
+      }
+    },
+    "persona": {
+      "title":    "Estilo de Saludo",
+      "subtitle": "Elige cómo das la bienvenida a las personas en tu página personal."
+    }
+  },
+  "landing": {
+    "badge":      "Bienestar Agara Life",
+    "headline":   "Soy {agentName}",
+    "subtext":    "Ayudo a las personas a descubrir cómo las decisiones naturales y simples crean energía duradera, claridad y vitalidad.",
+    "cta":        "Obtén mi Plan Personal de Bienestar",
+    "valueProps": {
+      "plan":    { "title": "Un Plan de Bienestar Personal",  "desc": "Creado según tus metas específicas." },
+      "guidance":{ "title": "Orientación sobre Productos",    "desc": "Descubre qué productos de Agara se ajustan a tu vida." },
+      "access":  { "title": "Acceso Directo a Mí",            "desc": "Una conversación real, sin presión." }
+    },
+    "form": {
+      "name":     "Tu nombre",
+      "email":    "Correo electrónico",
+      "phone":    "Teléfono o WhatsApp (opcional)",
+      "next":     "Siguiente",
+      "goals":    "¿Qué te importa más?",
+      "business": "También estoy abierto a una oportunidad de negocio con Agara.",
+      "urgency":  "¿Dónde estás ahora mismo?",
+      "source":   "¿Cómo supiste de mí?",
+      "submit":   "Obtén mi Plan Personal de Bienestar",
+      "submitting":"Creando tu plan...",
+      "privacy":  "Sin spam, nunca. Solo una guía personalizada para ti.",
+      "success": {
+        "title": "¡Tu plan está en camino!",
+        "body":  "Revisa tu bandeja de entrada."
+      }
+    }
+  },
+  "director": {
+    "greeting":          "Hola, {name}!",
+    "subtitle":          "Así es como tu equipo está creciendo en todas las regiones.",
+    "totalMembers":      "Total de Miembros",
+    "activeDistributors":"Distribuidores Activos",
+    "teamConnectionRate":"Tasa de Conexión del Equipo",
+    "tabs": {
+      "overview":     "Resumen",
+      "leaderboard":  "Impulso del Equipo",
+      "agents":       "Todos los Distribuidores"
+    },
+    "leaderboard": {
+      "title":   "Impulso Regional",
+      "subtitle":"Actividad de la comunidad en tiempo real en todas las regiones.",
+      "columns": {
+        "rank":     "Posición",
+        "region":   "Región",
+        "members":  "Miembros",
+        "connRate": "Tasa de Conexión",
+        "language": "Idioma Principal",
+        "topAgent": "Mejor Distribuidor",
+        "status":   "Estado"
+      }
+    }
+  }
+}

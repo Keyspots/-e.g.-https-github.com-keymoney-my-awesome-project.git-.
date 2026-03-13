@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "dashboard":    "Aking Dashboard",
+    "community":    "Aking Komunidad",
+    "myLink":       "Aking Personal na Link",
+    "settings":     "Mga Setting",
+    "teamOverview": "Pangkalahatang Tingin ng Koponan"
+  },
+  "dashboard": {
+    "greeting": {
+      "aloha":   "Aloha, {name}!",
+      "hola":    "Hola, {name}!",
+      "kumusta": "Kumusta, {name}!",
+      "hello":   "Kamusta, {name}!"
+    },
+    "subtitle": "Narito ang buod ng iyong komunidad at kung paano ito lumalaki.",
+    "stats": {
+      "totalMembers":     "Kabuuang Miyembro",
+      "readyToConnect":   "Handa na Kumonekta",
+      "connectionRate":   "Rate ng Koneksyon",
+      "growthMomentum":   "Lakas ng Paglago"
+    },
+    "heatmap": {
+      "title":   "Aktibidad sa Nakalipas na 30 Araw",
+      "joined":  "{count} bagong {count, plural, one {tao} other {tao}} ang sumali sa iyong komunidad"
+    },
+    "shareCard": {
+      "title":    "Iyong Personal na Pahina",
+      "subtitle": "Ibahagi ang link na ito at hayaang ang iyong kwento ang magtrabaho.",
+      "copy":     "Kopyahin ang Link",
+      "copied":   "Nakopya na!",
+      "toast":    "Nakopya na ang link! Ibahagi mo na!",
+      "peopleJoined": "Mga Taong Sumali",
+      "momentumScore": "Marka ng Momentum"
+    },
+    "flywheel": {
+      "title":    "Iyong Paglalakbay sa Paglago",
+      "subtitle": "Paano gumagalaw ang mga tao mula sa unang pakikipag-ugnayan hanggang maging bahagi ng iyong koponan.",
+      "stages": {
+        "attract": "Akitin",
+        "engage":  "Makipag-ugnayan",
+        "convert": "I-convert",
+        "delight": "Pasayahin"
+      }
+    },
+    "recentMembers": {
+      "title":    "Mga Bagong Miyembro ng Komunidad",
+      "subtitle": "Mga taong kamakailan lang sumali sa pamamagitan ng iyong pahina",
+      "empty":    "Ibahagi ang iyong link para simulan ang pagtanggap sa mga tao sa iyong komunidad.",
+      "columns": {
+        "person":    "Tao",
+        "readiness": "Pagiging Handa",
+        "joined":    "Sumali",
+        "source":    "Pinagmulan",
+        "action":    "Aksyon"
+      }
+    },
+    "persona": {
+      "title":    "Estilo ng Pagbati",
+      "subtitle": "Piliin kung paano mo tinatanggap ang mga tao sa iyong personal na pahina."
+    }
+  },
+  "landing": {
+    "badge":      "Kalusugan ng Agara Life",
+    "headline":   "Ako si {agentName}",
+    "subtext":    "Tinutulungan ko ang mga tao na matuklasan kung paano ang simpleng, natural na mga pagpili ay lumikha ng pangmatagalang lakas, linaw, at sigla.",
+    "cta":        "Makuha ang Aking Personal na Gabay sa Kalusugan",
+    "valueProps": {
+      "plan":    { "title": "Personal na Plano sa Kalusugan",   "desc": "Ginawa para sa iyong mga tiyak na layunin." },
+      "guidance":{ "title": "Gabay sa Produkto",                 "desc": "Alamin kung aling mga produkto ng Agara ang akma sa iyong buhay." },
+      "access":  { "title": "Direktang Makipag-ugnayan sa Akin", "desc": "Tunay na pag-uusap, walang presyur." }
+    },
+    "form": {
+      "name":     "Iyong pangalan",
+      "email":    "Email address",
+      "phone":    "Telepono o WhatsApp (opsyonal)",
+      "next":     "Susunod",
+      "goals":    "Ano ang pinakamahalaga sa iyo?",
+      "business": "Bukas din ako sa pagkakataon sa negosyo kasama ang Agara.",
+      "urgency":  "Nasaan ka ngayon?",
+      "source":   "Paano mo nalaman ang tungkol sa akin?",
+      "submit":   "Makuha ang Aking Personal na Gabay sa Kalusugan",
+      "submitting":"Ginagawa ang iyong gabay...",
+      "privacy":  "Walang spam, kailanman. Personal na gabay lamang para sa iyo.",
+      "success": {
+        "title": "Nandoon na ang iyong gabay!",
+        "body":  "Tingnan ang iyong inbox."
+      }
+    }
+  },
+  "director": {
+    "greeting":          "Kumusta, {name}!",
+    "subtitle":          "Narito kung paano lumalaki ang iyong koponan sa lahat ng rehiyon.",
+    "totalMembers":      "Kabuuang Miyembro ng Komunidad",
+    "activeDistributors":"Mga Aktibong Distributor",
+    "teamConnectionRate":"Rate ng Koneksyon ng Koponan",
+    "tabs": {
+      "overview":     "Pangkalahatang-tanaw",
+      "leaderboard":  "Momentum ng Koponan",
+      "agents":       "Lahat ng Distributor"
+    },
+    "leaderboard": {
+      "title":   "Regional na Momentum",
+      "subtitle":"Real-time na aktibidad ng komunidad sa lahat ng rehiyon.",
+      "columns": {
+        "rank":     "Ranggo",
+        "region":   "Rehiyon",
+        "members":  "Mga Miyembro",
+        "connRate": "Rate ng Koneksyon",
+        "language": "Pangunahing Wika",
+        "topAgent": "Nangungunang Distributor",
+        "status":   "Katayuan"
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "dashboard":    "My Dashboard",
+    "community":    "My Community",
+    "myLink":       "My Personal Link",
+    "settings":     "Settings",
+    "teamOverview": "Team Overview"
+  },
+  "dashboard": {
+    "greeting": {
+      "aloha":   "Aloha, {name}!",
+      "hola":    "Hola, {name}!",
+      "kumusta": "Kumusta, {name}!",
+      "hello":   "Hello, {name}!"
+    },
+    "subtitle": "Here is a snapshot of your community and how it is growing.",
+    "stats": {
+      "totalMembers":     "Total Members",
+      "readyToConnect":   "Ready to Connect",
+      "connectionRate":   "Connection Rate",
+      "growthMomentum":   "Growth Momentum"
+    },
+    "heatmap": {
+      "title":   "Activity Over the Past 30 Days",
+      "joined":  "{count} new {count, plural, one {person} other {people}} joined your community"
+    },
+    "shareCard": {
+      "title":    "Your Personal Page",
+      "subtitle": "Share this link and let your story do the work.",
+      "copy":     "Copy Link",
+      "copied":   "Copied!",
+      "toast":    "Link copied! Go share it!",
+      "peopleJoined": "People Joined",
+      "momentumScore": "Momentum Score"
+    },
+    "flywheel": {
+      "title":    "Your Growth Journey",
+      "subtitle": "How people move from first contact to becoming part of your team.",
+      "stages": {
+        "attract": "Attract",
+        "engage":  "Engage",
+        "convert": "Convert",
+        "delight": "Delight"
+      }
+    },
+    "recentMembers": {
+      "title":    "New Community Members",
+      "subtitle": "People who recently joined through your page",
+      "empty":    "Share your link to start welcoming people into your community.",
+      "columns": {
+        "person":    "Person",
+        "readiness": "Readiness",
+        "joined":    "Joined",
+        "source":    "Source",
+        "action":    "Action"
+      }
+    },
+    "persona": {
+      "title":    "Greeting Style",
+      "subtitle": "Choose how you welcome people when they open your personal page."
+    }
+  },
+  "landing": {
+    "badge":      "Agara Life Wellness",
+    "headline":   "I am {agentName}",
+    "subtext":    "I help people discover how simple, natural choices create lasting energy, clarity, and vitality.",
+    "cta":        "Get my Personal Wellness Blueprint",
+    "valueProps": {
+      "plan":    { "title": "A Personal Wellness Plan",  "desc": "Built around your specific goals." },
+      "guidance":{ "title": "Product Guidance",          "desc": "Know which Agara products fit your life." },
+      "access":  { "title": "Direct Access to Me",       "desc": "A real conversation, no pressure." }
+    },
+    "form": {
+      "name":     "Your name",
+      "email":    "Email address",
+      "phone":    "Phone or WhatsApp (optional)",
+      "next":     "Next",
+      "goals":    "What matters most to you?",
+      "business": "I am also open to a business opportunity with Agara.",
+      "urgency":  "Where are you right now?",
+      "source":   "How did you hear about me?",
+      "submit":   "Get my Personal Wellness Blueprint",
+      "submitting":"Creating your blueprint...",
+      "privacy":  "No spam, ever. Just a personalized guide for you.",
+      "success": {
+        "title": "Your blueprint is on the way!",
+        "body":  "Check your inbox."
+      }
+    }
+  },
+  "director": {
+    "greeting":          "Aloha, {name}!",
+    "subtitle":          "Here is how your team is growing across all regions.",
+    "totalMembers":      "Total Community Members",
+    "activeDistributors":"Active Distributors",
+    "teamConnectionRate":"Team Connection Rate",
+    "tabs": {
+      "overview":     "Overview",
+      "leaderboard":  "Team Momentum",
+      "agents":       "All Distributors"
+    },
+    "leaderboard": {
+      "title":   "Regional Momentum",
+      "subtitle":"Real-time community activity across all regions.",
+      "columns": {
+        "rank":     "Rank",
+        "region":   "Region",
+        "members":  "Members",
+        "connRate": "Connection Rate",
+        "language": "Primary Language",
+        "topAgent": "Top Distributor",
+        "status":   "Status"
+      }
+    }
+  }
+}
