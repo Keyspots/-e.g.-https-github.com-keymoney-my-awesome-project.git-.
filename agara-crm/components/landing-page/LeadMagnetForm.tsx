@@ -55,14 +55,15 @@ export function LeadMagnetForm({ agentId, agentSlug, persona }: LeadMagnetFormPr
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          agent_id: agentId,
-          agent_slug: agentSlug,
-          name, email, phone,
+          agentSlug,
+          fullName: name,
+          email,
+          phone,
           answers,
-          urgency,
-          referral_source: source,
-          time_on_page: timeOnPage,
-          persona_selected: persona,
+          language: 'en',
+          timeOnPage,
+          personaSelected: persona,
+          referralSource: source || undefined,
         }),
       });
       setSubmitted(true);

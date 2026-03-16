@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { calculateLeadScore } from '@/lib/ai-engine/openai';
+import { calculateLeadScore } from '@/lib/ai-engine/gemini';
 import { generateAlohaEmail } from '@/lib/ai-engine/emailTemplates';
 import type { Locale, GreetingPersona, Lead, Profile } from '@/types';
 

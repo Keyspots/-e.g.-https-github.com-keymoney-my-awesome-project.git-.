@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import type { Lead, Profile } from '@/types';
+import type { Lead, Profile, LeadScoringInput, LeadScore, LeadStatus } from '@/types';
 
 let client: GoogleGenerativeAI | null = null;
 
@@ -55,6 +55,61 @@ Format as clean markdown with headers. Keep it to 400 words or less.
     console.error('[AI Engine] Blueprint generation failed, using fallback:', err);
     return devFallback(lead, agent);
   }
+}
+
+const LOCALE_NAME: Record<string, string> = { en: 'English', es: 'Spanish', tl: 'Tagalog' };
+
+/**
+ * Score a lead using Gemini and return a readiness category + recommended action.
+ * Used in place of OpenAI when OPENAI_API_KEY is absent.
+ */
+export async function calculateLeadScore(input: LeadScoringInput): Promise<LeadScore> {
+  if (!process.env.GEMINI_API_KEY) {
+    return scoreDevFallback(input);
+  }
+
+  const model = getClient().getGenerativeModel({ model: 'gemini-1.5-flash' });
+  const lang = LOCALE_NAME[input.language] ?? input.language;
+
+  const prompt = `
+You are an Agara Life wellness distributor assistant. Analyze this prospective member:
+- Interests: ${input.answers.join(', ')}
+- Time spent on page: ${input.timeOnPage} seconds
+- Language: ${lang}
+- Greeted as: ${input.personaSelected}
+
+Assign a readiness score 0–100 and write a one-sentence recommended next action IN ${lang}.
+Rules: 76–100 = Hot, 41–75 = Warm, 0–40 = Cold.
+
+Respond ONLY with valid JSON: { "score": number, "category": "Hot"|"Warm"|"Cold", "action": "string" }
+  `.trim();
+
+  try {
+    const result = await model.generateContent(prompt);
+    const raw = JSON.parse(result.response.text().replace(/```json|```/g, '').trim());
+    const score: number = Math.max(0, Math.min(100, Number(raw.score) || 0));
+    const category: LeadStatus = raw.category === 'Hot' ? 'Hot' : raw.category === 'Warm' ? 'Warm' : 'Cold';
+    return { score, category, recommendedAction: raw.action ?? '' };
+  } catch (err) {
+    console.error('[AI Engine] Gemini lead scoring failed, using fallback:', err);
+    return scoreDevFallback(input);
+  }
+}
+
+function scoreDevFallback(input: LeadScoringInput): LeadScore {
+  let score = 30;
+  if (input.answers.includes('Business'))  score += 30;
+  if (input.answers.includes('Longevity')) score += 10;
+  if (input.timeOnPage < 60)               score += 20;
+  if (input.timeOnPage < 30)               score += 10;
+  score = Math.min(100, score);
+  const category: LeadStatus = score > 75 ? 'Hot' : score > 40 ? 'Warm' : 'Cold';
+  const actions: Record<LeadStatus, string> = {
+    Hot:  'Call immediately — this person is ready for the Agara business conversation.',
+    Warm: 'Send the wellness blueprint and follow up within 24 hours.',
+    Cold: 'Share the Agara wellness guide and check in next week.',
+  };
+  return { score, category, recommendedAction: actions[category] };
 }
 
 function devFallback(lead: Lead, agent: Profile): string {
